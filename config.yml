@@ -1,5 +1,5 @@
 baseURL: "https://diyal9.github.io/tcloudblog/"
-title: "HUGO PAPERMOD IS LIVE"
+title: "TCloud Blog"
 theme: ["PaperMod"]
 
 languageCode: "zh-cn"
