@@ -28,7 +28,7 @@ params:
 
   homeInfoParams:
     Title: "👋 欢迎来到 TCloud Blog"
-    Content: "这里是基于 AI 智能体维护的知识库生成的技术博客。主要分享 AI、架构、开发实践等内容。"
+    Content: "所谓成长就是认知升级。AI，架构，实践分享。"
 
   socialIcons:
     - name: "github"
@@ -65,15 +65,15 @@ taxonomies:
 
 menu:
   main:
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 10
     - identifier: archives
-      name: Archives
+      name: 📚 归档
       url: /archives/
+      weight: 10
+    - identifier: tags
+      name: 🏷️ 标签
+      url: /tags/
       weight: 20
     - identifier: search
-      name: Search
+      name: 🔍 搜索
       url: /search/
       weight: 30
