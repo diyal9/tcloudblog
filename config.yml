@@ -1,0 +1,37 @@
+baseURL: "https://diyal9.github.io/tcloudblog/"
+languageCode: "zh-cn"
+title: "TCloud Blog"
+
+params:
+  description: "技术博客 - 基于 AI 与知识库构建"
+  author: "diyal9"
+  defaultTheme: "auto"
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  useHugoToc: true
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/diyal9"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+permalinks:
+  posts: "/posts/:slugorfilename/"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+taxonomies:
+  tag: tags
+  category: categories
