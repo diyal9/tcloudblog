@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     {{ if .OutputFormats.Get "RSS" }}
-    <link rel="alternate" type="application/rss+xml" href="{{ .OutputFormats.Get "RSS" . | relURL }}">
+    <link rel="alternate" type="application/rss+xml" href="{{ .OutputFormats.Get "RSS" | relURL }}">
     {{ end }}
 </head>
 <body>
