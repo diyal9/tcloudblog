@@ -1,31 +1,58 @@
 baseURL: "https://diyal9.github.io/tcloudblog/"
-languageCode: "zh-cn"
 title: "TCloud Blog"
+theme: ["PaperMod"]
 
-params:
-  description: "技术博客 - 基于 AI 与知识库构建"
-  author: "diyal9"
-  defaultTheme: "auto"
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: true
-  useHugoToc: true
-
-  socialIcons:
-    - name: "github"
-      url: "https://github.com/diyal9"
+languageCode: "zh-cn"
+defaultContentLanguage: "zh"
 
 outputs:
   home:
     - HTML
     - RSS
-    - JSON
+    - JSON # PaperMod 搜索功能依赖 JSON
 
-permalinks:
-  posts: "/posts/:slugorfilename/"
+params:
+  env: production
+  title: "TCloud Blog"
+  description: "基于 AI 知识库构建的技术博客"
+  keywords: ["AI", "Blog", "Hugo", "PaperMod"]
+  author: "diyal9"
+  DateFormat: "January 2, 2006"
+  defaultTheme: "auto" # dark, light, auto
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+
+  homeInfoParams:
+    Title: "👋 欢迎来到 TCloud Blog"
+    Content: "这里是基于 AI 智能体维护的知识库生成的技术博客。主要分享 AI、架构、开发实践等内容。"
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/diyal9"
+    - name: "rss"
+      url: "/index.xml"
+
+  label:
+    text: "TCloud"
+    icon: "/favicon.ico"
+    iconHeight: 24
+
+  # 归档页面配置
+  disableSpecial1stPost: false
+
+  # 搜索功能
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
 
 markup:
   goldmark:
@@ -35,3 +62,18 @@ markup:
 taxonomies:
   tag: tags
   category: categories
+
+menu:
+  main:
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 10
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
