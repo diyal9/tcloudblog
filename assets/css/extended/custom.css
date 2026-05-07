@@ -1,0 +1,24 @@
+/* 自定义样式 */
+
+/* 缩短标题与正文之间的间距 */
+.post-header {
+  margin-bottom: 1.5em;
+}
+
+.post-header .post-meta {
+  margin-top: 0.5em;
+}
+
+.post-content {
+  margin-top: 1em;
+}
+
+/* 隐藏首页 social icons（GitHub / RSS 两个图标按钮） */
+.first-entry .social-icons {
+  display: none;
+}
+
+/* 隐藏文章底部的上一篇/下一篇导航 */
+.post-nav-links {
+  display: none;
+}

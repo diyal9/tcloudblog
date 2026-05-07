@@ -23,7 +23,7 @@ params:
   defaultTheme: "auto" # dark, light, auto
   ShowShareButtons: false
   ShowReadingTime: true
-  ShowPostNavLinks: true
+  ShowPostNavLinks: false
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowToc: true
