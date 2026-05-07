@@ -5,6 +5,8 @@ theme: ["PaperMod"]
 languageCode: "zh-cn"
 defaultContentLanguage: "zh"
 
+future: true
+
 outputs:
   home:
     - HTML
