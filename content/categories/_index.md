@@ -1,4 +1,3 @@
 ---
-title: "📂 分类"
-type: "taxonomy"
+title: "分类"
 ---
