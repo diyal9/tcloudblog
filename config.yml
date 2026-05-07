@@ -40,7 +40,7 @@ params:
 
   label:
     text: "TCloud"
-    icon: "/favicon.ico"
+    icon: "/favicon.svg"
     iconHeight: 24
 
   # 归档页面配置
