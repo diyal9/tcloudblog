@@ -2,6 +2,7 @@
 title: "大模型选型速查：从架构演进到游戏开发实践"
 date: 2026-05-07
 tags: ["AI", "LLM", "Game Dev", "DeepSeek", "架构"]
+categories: ["AI", "架构", "Game Dev"]
 summary: "2026 年主流 LLM 模型速查表，结合架构演进（MLA/MoE/mHC）给出游戏开发的分层部署方案，中型游戏月成本仅需 $1000。"
 ---
 

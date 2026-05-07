@@ -2,6 +2,7 @@
 title: "Transformer 与 DeepSeek 架构演进：从基础到创新"
 date: 2026-05-07
 tags: ["AI", "LLM", "Transformer", "DeepSeek", "架构"]
+categories: ["AI", "架构"]
 summary: "Transformer 是现代大模型的基石，而 DeepSeek 系列在其之上进行了哪些关键革新？本文横向对比 V2 到 V4 的演进路线，深入解读 MLA、MoE 与 mHC 等核心技术。"
 ---
 

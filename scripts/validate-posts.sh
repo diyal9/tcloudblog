@@ -33,6 +33,12 @@ for file in "$BLOG_DIR"/*.md; do
         errors_in_file=$((errors_in_file + 1))
     fi
 
+    # Check categories exist
+    if ! grep -q '^categories:' "$file"; then
+        echo "  ❌ $filename: missing 'categories' in frontmatter"
+        errors_in_file=$((errors_in_file + 1))
+    fi
+
     # Check summary exists
     summary=$(grep -m1 '^summary:' "$file" | sed 's/^summary: *"\{0,1\}//; s/"\{0,1\}$//')
     if [ -z "$summary" ]; then
