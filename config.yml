@@ -68,18 +68,18 @@ taxonomies:
 menu:
   main:
     - identifier: archives
-      name: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-4px;margin-right:4px'><rect x='2' y='3' width='20' height='5' rx='1'></rect><path d='M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8'></path><path d='M10 12h4'></path></svg>归档"
+      name: 归档
       url: /archives/
       weight: 10
     - identifier: categories
-      name: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-4px;margin-right:4px'><path d='M4 20h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z'></path><path d='M2 10h20'></path></svg>分类"
+      name: 分类
       url: /categories/
       weight: 15
     - identifier: tags
-      name: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-4px;margin-right:4px'><path d='M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z'></path><line x1='7' y1='7' x2='7.01' y2='7'></line></svg>标签"
+      name: 标签
       url: /tags/
       weight: 20
     - identifier: search
-      name: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-4px;margin-right:4px'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>搜索"
+      name: 搜索
       url: /search/
       weight: 30
