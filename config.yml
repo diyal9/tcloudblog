@@ -62,8 +62,8 @@ markup:
       unsafe: true
 
 taxonomies:
-  tag: tags
-  category: categories
+  tags: tags
+  categories: categories
 
 menu:
   main:
