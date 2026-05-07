@@ -97,3 +97,34 @@
 .header .nav a[href="/search/"]::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
 }
+
+/* ========== 面包屑导航 (Breadcrumbs) 优化 ========== */
+/* 去除黄色背景/边框，改为简约风格，并垂直居中 */
+
+.breadcrumbs {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 0.5rem 0 !important;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    font-size: 0.85rem;
+    color: var(--secondary);
+}
+
+.breadcrumbs a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.breadcrumbs .sep {
+    margin: 0 0.4em;
+    color: var(--tertiary);
+}
