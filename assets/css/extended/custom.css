@@ -49,43 +49,51 @@
   margin-bottom: 0.8rem;
 }
 
-/* ========== 导航栏极简 SVG 图标 (修复版) ========== */
-/* 直接使用 background-image 显示 SVG，避免 mask 兼容性问题导致黑块 */
-/* 使用 filter: invert(1) 在深色模式下自动变白 */
+/* ========== 导航栏极简图标 (修复版) ========== */
+/* 风格参考：深色模式切换按钮（清晰的矢量图标） */
+/* 使用 background-image 确保兼容性，不再使用 mask-image */
 
-.header nav a::before {
+/* 基础样式 */
+.header .nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* 图标和文字的间距 */
+}
+
+.header .nav a::before {
     content: '';
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin-right: 6px;
-    vertical-align: -4px;
+    vertical-align: middle;
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center;
+    background-size: 20px 20px;
+    /* 默认黑色图标 */
+    filter: brightness(0); 
 }
 
-/* 归档 */
-.header nav a[href="/archives/"]::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='20' height='5' rx='1'%3E%3C/rect%3E%3Cpath d='M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8'%3E%3C/path%3E%3Cpath d='M10 12h4'%3E%3C/path%3E%3C/svg%3E");
-}
-
-/* 分类 */
-.header nav a[href="/categories/"]::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-/* 标签 */
-.header nav a[href="/tags/"]::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z'%3E%3C/path%3E%3Cline x1='7' y1='7' x2='7.01' y2='7'%3E%3C/line%3E%3C/svg%3E");
-}
-
-/* 搜索 */
-.header nav a[href="/search/"]::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
-}
-
-/* 深色模式：将图标颜色反转为白色 */
-.dark .header nav a::before {
+/* 深色模式自动反转为白色 */
+.dark .header .nav a::before {
     filter: brightness(0) invert(1);
+}
+
+/* 归档图标 */
+.header .nav a[href="/archives/"]::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='20' height='5' rx='1'%3E%3C/rect%3E%3Cpath d='M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8'%3E%3C/path%3E%3Cpath d='M10 12h4'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* 分类图标 */
+.header .nav a[href="/categories/"]::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* 标签图标 */
+.header .nav a[href="/tags/"]::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z'%3E%3C/path%3E%3Cline x1='7' y1='7' x2='7.01' y2='7'%3E%3C/line%3E%3C/svg%3E");
+}
+
+/* 搜索图标 */
+.header .nav a[href="/search/"]::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
 }
