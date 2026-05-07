@@ -1,0 +1,78 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+<div class="category-viewer">
+  <div class="category-nav">
+    {{- $idx := 0 }}
+    {{- range .Site.Taxonomies.categories.ByCount }}
+      <button class="cat-btn {{ if eq $idx 0 }}active{{ end }}" data-cat="{{ .Name | urlize }}">
+        {{ .Name }}
+        <span class="badge">{{ .Count }}</span>
+      </button>
+      {{- $idx = add $idx 1 }}
+    {{- end }}
+  </div>
+
+  <div class="category-posts-container">
+    {{- $idx = 0 }}
+    {{- range .Site.Taxonomies.categories.ByCount }}
+      <div id="cat-{{ .Name | urlize }}" class="cat-section {{ if eq $idx 0 }}active{{ end }}">
+        {{- range .Pages }}
+          <article class="post-preview">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <time>{{ .Date.Format "2006-01-02" }}</time>
+            <p>{{ .Summary | plainify | truncate 120 }}</p>
+          </article>
+        {{- end }}
+      </div>
+      {{- $idx = add $idx 1 }}
+    {{- end }}
+  </div>
+</div>
+
+<style>
+  .category-nav {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .cat-btn {
+    background: var(--code-bg); border: 1px solid var(--border); color: var(--secondary);
+    padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 14px; transition: all 0.2s;
+  }
+  .cat-btn:hover { background: var(--tertiary); color: var(--content); }
+  .cat-btn.active { background: var(--primary); color: var(--entry); border-color: var(--primary); }
+  .cat-btn .badge {
+    background: rgba(255,255,255,0.2); border-radius: 50%; padding: 2px 6px; font-size: 0.75em; margin-left: 6px;
+  }
+
+  .cat-section { display: none; animation: fadeUp 0.3s ease; }
+  .cat-section.active { display: block; }
+  
+  .post-preview {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--border);
+  }
+  .post-preview:last-child { border-bottom: none; }
+  .post-preview h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+  .post-preview a { text-decoration: none; color: var(--content); }
+  .post-preview a:hover { color: var(--primary); }
+  .post-preview time { font-size: 0.8rem; color: var(--secondary); display: block; margin-bottom: 8px; }
+  .post-preview p { font-size: 0.9rem; color: var(--secondary); margin: 0; line-height: 1.5; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<script>
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('active'));
+      
+      btn.classList.add('active');
+      const target = document.getElementById('cat-' + btn.dataset.cat);
+      if (target) target.classList.add('active');
+    });
+  });
+</script>
+{{- end }}
