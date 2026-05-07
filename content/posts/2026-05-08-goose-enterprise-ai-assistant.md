@@ -1,5 +1,5 @@
 ---
-title: "goose 企业 AI 助手底座：43k Star 的开源本地运行时"
+title: "goose 企业 AI 助手底座"
 date: 2026-05-08T07:40:00+08:00
 lastmod: 2026-05-08T07:40:00+08:00
 tags: ["AI", "Agent", "开源", "企业级", "goose", "MCP"]
