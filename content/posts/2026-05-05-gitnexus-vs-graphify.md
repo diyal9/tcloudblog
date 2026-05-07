@@ -1,7 +1,7 @@
 ---
 title: "代码知识图谱对比：GitNexus和Graphify"
-date: 2026-05-05T23:12:00+08:00
-lastmod: 2026-05-05T23:12:00+08:00
+date: 2026-05-07T20:30:00+08:00
+lastmod: 2026-05-07T20:30:00+08:00
 draft: false
 categories: ["AI编程", "工程实践"]
 tags: ["代码分析", "知识图谱", "GitNexus", "graphify", "工具链"]
