@@ -29,8 +29,8 @@ params:
   ShowToc: true
 
   homeInfoParams:
-    Title: "👋 欢迎来到 TCloud Blog"
-    Content: "所谓成长就是认知升级。AI，架构，实践分享。"
+    Title: "欢迎来到 TCloud Blog"
+    Content: "所谓成长就是认知升级。在这里分享 AI、架构与开发实践。"
 
   socialIcons:
     - name: "github"
