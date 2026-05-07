@@ -1,5 +1,5 @@
 ---
-title: "提示词工程 (Prompt Engineering) 新手指南：如何与 AI 高效沟通"
+title: "提示词工程：如何与 AI 高效沟通"
 date: 2026-05-07
 tags: ["AI", "LLM", "Prompt", "新手指南"]
 categories: ["AI", "LLM"]
