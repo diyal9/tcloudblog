@@ -29,7 +29,7 @@ params:
   ShowToc: true
 
   homeInfoParams:
-    Title: "欢迎来到 TCloud Blog"
+    Title: ""
     Content: "分享 AI、架构与开发实践。"
 
   socialIcons:
@@ -39,7 +39,7 @@ params:
       url: "/index.xml"
 
   label:
-    text: "TCloud"
+    text: "TCloud Blog"
     icon: "/favicon.svg"
     iconHeight: 24
 
@@ -71,6 +71,10 @@ menu:
       name: 📚 归档
       url: /archives/
       weight: 10
+    - identifier: categories
+      name: 📂 分类
+      url: /categories/
+      weight: 15
     - identifier: tags
       name: 🏷️ 标签
       url: /tags/
