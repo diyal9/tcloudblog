@@ -1,4 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#1a1a1a"/>
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Serif SC', 'SimHei', 'Microsoft YaHei', sans-serif" font-size="64" font-weight="bold" fill="#e74c3c">龙</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Serif SC', 'SimHei', 'Microsoft YaHei', sans-serif" font-size="64" font-weight="bold" fill="#000000">龙</text>
 </svg>
