@@ -31,9 +31,9 @@ params:
   homeInfoParams:
     Title: ""
     Content: |
-      - 所谓成长就是认知升级
-      - 技术分享和开发实践
-      - 探索AI和实践
+      所谓成长就是认知升级
+      技术分享和开发实践
+      探索AI和实践
 
   socialIcons:
     - name: "wechat"
