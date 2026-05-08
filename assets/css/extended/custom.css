@@ -1,73 +1,59 @@
 
-/* 首页 Hero 区域 - 极简杂志风 */
+/* 首页 Hero 区域优化 */
 
-/* 1. 卡片整体：悬浮阴影 + 圆角 */
 .first-entry {
   min-height: auto !important;
   margin: 0 0 2rem 0 !important;
-  padding: 1.5rem 2rem !important;
-  border: none !important; /* 去除边框 */
+  padding: 1.5rem 2rem 1rem 2rem !important; /* 底部稍微紧凑 */
+  border: none !important;
   border-radius: 12px;
   background: var(--entry);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 柔和阴影 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-/* 2. 文本区域：居中 + 呼吸感 */
 .first-entry .entry-content {
   font-size: 1.1rem !important;
   color: var(--secondary);
-  line-height: 1.8; /* 更大的行高 */
-  text-align: center; /* 居中 */
-  margin: 0 auto 1rem auto !important;
-  max-width: 80%;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 auto 0.5rem auto !important; /* 减小到底部图标的距离 */
+  max-width: 90%;
 }
 
-/* 移除列表样式（如果还有） */
 .first-entry .entry-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; padding: 0; margin: 0;
 }
+.first-entry .entry-content li { margin: 0; }
 
-.first-entry .entry-content li {
-  margin-bottom: 0.5rem;
-  list-style: none;
-}
-
-/* 3. 社交图标：品牌色 Hover */
 .first-entry .social-icons {
   display: flex !important;
   justify-content: center;
-  gap: 20px;
-  margin-top: 1rem !important;
+  gap: 24px;
+  margin-top: 0.2rem !important; /* 紧贴文字下方 */
   margin-bottom: 0 !important;
 }
 
 .first-entry .social-icons a {
   color: var(--secondary);
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .first-entry .social-icons a svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor; /* 确保颜色生效 */
-  transition: all 0.3s ease;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: none; /* 确保如果是线框图标不被填充，如果是实心则正常 */
 }
 
-/* 品牌色 Hover 效果 */
-/* 微信 */
-.first-entry .social-icons a[title*="微信"]:hover {
-  color: #07C160;
-  transform: scale(1.2);
+.first-entry .social-icons a:hover {
+  transform: scale(1.1);
 }
-/* 邮件 */
-.first-entry .social-icons a[title*="邮箱"]:hover {
-  color: #0072E3;
-  transform: scale(1.2);
-}
-/* GitHub */
-.first-entry .social-icons a[title*="GitHub"]:hover {
-  color: #24292F;
-  transform: scale(1.2);
+
+/* 菜单图标优化 (Menu Icons) */
+#menu a svg {
+  fill: none !important;
+  stroke: currentColor;
+  stroke-width: 2;
+  vertical-align: -3px;
+  margin-right: 6px;
 }
