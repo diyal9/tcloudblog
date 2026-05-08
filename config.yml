@@ -35,7 +35,7 @@ params:
 
   socialIcons:
     - name: "wechat"
-      url: "mailto:670924505@qq.com" # Placeholder, user can update to wechat link
+      url: "#"
       title: "微信: diyalyin"
     - name: "email"
       url: "mailto:670924505@qq.com"
@@ -46,7 +46,7 @@ params:
 
   label:
     text: "TCloud Blog"
-    icon: "/favicon.svg"
+    icon: "favicon.svg"
     iconHeight: 24
 
   # 归档页面配置
