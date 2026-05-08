@@ -1,5 +1,5 @@
 ---
-title: "Langfuse详解：LLM 可观测性平台"
+title: "Langfuse详解：提示词管理和cursor集成"
 date: 2026-05-08T10:00:00+08:00
 lastmod: 2026-05-08T10:00:00+08:00
 tags: ["AI", "LLM", "可观测性", "Langfuse", "Agent", "Cursor"]
