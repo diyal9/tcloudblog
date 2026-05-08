@@ -1,1 +1,100 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<style>
+/* WeChat tooltip */
+.wechat-tooltip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.wechat-tooltip.show {
+  opacity: 1;
+}
+/* Ensure social icons are visible */
+.social-icons a {
+  color: var(--secondary);
+  transition: color 0.2s ease;
+}
+.social-icons a:hover {
+  color: var(--primary);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const wechatLink = document.querySelector('.wechat-link');
+  if (!wechatLink) return;
+
+  const wechatId = wechatLink.getAttribute('data-wechat-id') || 'diyalyin';
+
+  // Create tooltip element
+  const tooltip = document.createElement('div');
+  tooltip.className = 'wechat-tooltip';
+  tooltip.textContent = '微信号已复制: ' + wechatId;
+  document.body.appendChild(tooltip);
+
+  wechatLink.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Try to open WeChat (works on mobile with weixin:// protocol)
+    // Fallback to clipboard copy
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(wechatId).then(() => {
+        showTooltip();
+      }).catch(() => {
+        // Fallback for older browsers
+        fallbackCopy(wechatId);
+      });
+    } else {
+      fallbackCopy(wechatId);
+    }
+
+    // Try to open WeChat app (mobile only)
+    try {
+      const weixinLink = document.createElement('a');
+      weixinLink.href = 'weixin://';
+      weixinLink.style.display = 'none';
+      document.body.appendChild(weixinLink);
+      weixinLink.click();
+      document.body.removeChild(weixinLink);
+    } catch(e) {
+      // Silently fail
+    }
+  });
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showTooltip();
+    } catch(e) {
+      tooltip.textContent = '复制失败，请手动复制: ' + text;
+      showTooltip();
+    }
+    document.body.removeChild(ta);
+  }
+
+  function showTooltip() {
+    tooltip.classList.add('show');
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+    }, 2000);
+  }
+});
+</script>
