@@ -29,14 +29,22 @@ params:
   ShowToc: true
 
   homeInfoParams:
-    Title: ""
-    Content: "分享 AI、架构与开发实践。"
+    Title: "Cloud Blog"
+    Content: |
+      所谓成长就是认知升级<br>
+      技术分享和开发实践<br>
+      探索AI和实践
 
   socialIcons:
+    - name: "wechat"
+      url: "mailto:670924505@qq.com" # Placeholder, user can update to wechat link
+      title: "微信: diyalyin"
+    - name: "email"
+      url: "mailto:670924505@qq.com"
+      title: "邮箱: 670924505@qq.com"
     - name: "github"
       url: "https://github.com/diyal9"
-    - name: "rss"
-      url: "/index.xml"
+      title: "GitHub"
 
   label:
     text: "TCloud Blog"
