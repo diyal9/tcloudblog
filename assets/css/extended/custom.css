@@ -3,8 +3,8 @@
 
 .first-entry {
   min-height: auto !important;
-  margin: 0 0 1.2rem 0 !important; /* 减小整体下边距 */
-  padding: 0.8rem 2rem 0.6rem 2rem !important; /* 减小上下内边距，降低卡片高度 */
+  margin: 0 0 1.2rem 0 !important;
+  padding: 0.8rem 2rem 0.8rem 2rem !important;
   border: none !important;
   border-radius: 12px;
   background: var(--entry);
@@ -13,11 +13,28 @@
 
 .first-entry .entry-content {
   font-size: 1rem !important;
-  color: var(--secondary);
-  line-height: 1.15 !important; /* 行间距压缩至约 80% */
+  color: var(--primary); /* Make text slightly darker/bolder for readability */
+  font-weight: 500;
+  line-height: 1.4 !important;
   text-align: center;
-  margin: 0 auto 0.3rem auto !important; /* 减小到底部图标的距离 */
+  margin: 0 auto 0.8rem auto !important; /* Space for separator */
+  padding-bottom: 0.8rem; /* Space above separator */
+  position: relative;
   max-width: 90%;
+}
+
+/* Gradient Separator */
+.first-entry .entry-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--secondary) 50%, transparent 100%);
+  opacity: 0.5;
 }
 
 .first-entry .entry-content ul {
@@ -29,13 +46,13 @@
   display: flex !important;
   justify-content: center;
   gap: 24px;
-  margin-top: 0.1rem !important; /* 紧贴文字下方 */
+  margin-top: 0.8rem !important; /* Space below separator */
   margin-bottom: 0 !important;
 }
 
 .first-entry .social-icons a {
   color: var(--secondary);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .first-entry .social-icons a svg {
@@ -46,6 +63,7 @@
 }
 
 .first-entry .social-icons a:hover {
+  color: var(--primary);
   transform: scale(1.1);
 }
 
