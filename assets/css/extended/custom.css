@@ -4,35 +4,35 @@
 .first-entry {
   min-height: auto !important;
   margin: 0 0 1rem 0 !important; /* 减小底部间距 */
-  padding: 1rem 1rem 0.5rem !important;
+  padding: 0.8rem 1rem !important; /* 紧凑的内边距 */
   border: 1px solid var(--border); /* 添加边框，呼应"图例"风格 */
   border-radius: 8px;
   background: var(--entry);
 }
 
-/* 2. 标题样式 */
-.first-entry .entry-header h1 {
-  font-size: 24px !important;
-  font-weight: 700;
-  margin-bottom: 0.8rem !important; /* 紧凑 */
-  text-align: center;
-}
-
-/* 3. 内容文本样式 (三列行) */
+/* 2. 内容文本样式 (列表) */
 .first-entry .entry-content {
-  font-size: 15px !important;
+  font-size: 80% !important; /* 80% 字体大小 */
   color: var(--secondary);
-  line-height: 1.6; /* 舒适的行高 */
-  text-align: center;
-  margin: 0 auto 1rem auto !important;
-  max-width: 600px;
+  line-height: 1.5; /* 舒适但紧凑的行高 */
+  text-align: center; /* 让列表块整体居中 */
+  margin: 0 auto 0.5rem auto !important;
+  max-width: 500px;
 }
 
-.first-entry .entry-content br {
-  margin-bottom: 0.2rem;
+.first-entry .entry-content ul {
+  list-style-type: disc !important; /* 显示列表符号 */
+  text-align: left; /* 文字左对齐 */
+  display: inline-block; /* 保持整体居中 */
+  padding-left: 1.2rem; /* 列表符号的空间 */
+  margin: 0 auto;
 }
 
-/* 4. 社交图标优化 */
+.first-entry .entry-content li {
+  margin-bottom: 0.15rem; /* 行间距紧凑 */
+}
+
+/* 3. 社交图标优化 */
 .first-entry .social-icons {
   display: flex !important;
   justify-content: center;
