@@ -37,6 +37,7 @@ params:
     - name: "wechat"
       url: "#"
       title: "微信: diyalyin"
+      wechatId: "diyalyin"
     - name: "email"
       url: "mailto:670924505@qq.com"
       title: "邮箱: 670924505@qq.com"
