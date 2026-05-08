@@ -80,3 +80,9 @@
   vertical-align: -3px;
   margin-right: 6px;
 }
+
+
+/* 修复 Logo 在暗黑模式下的颜色 (黑色变白色) */
+[data-theme="dark"] .logo img {
+    filter: invert(1) brightness(1.5);
+}
