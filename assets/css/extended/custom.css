@@ -3,8 +3,8 @@
 
 .first-entry {
   min-height: auto !important;
-  margin: 0 0 2rem 0 !important;
-  padding: 1.5rem 2rem 1rem 2rem !important; /* 底部稍微紧凑 */
+  margin: 0 0 1.2rem 0 !important; /* 减小整体下边距 */
+  padding: 0.8rem 2rem 0.6rem 2rem !important; /* 减小上下内边距，降低卡片高度 */
   border: none !important;
   border-radius: 12px;
   background: var(--entry);
@@ -12,11 +12,11 @@
 }
 
 .first-entry .entry-content {
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   color: var(--secondary);
-  line-height: 1.4;
+  line-height: 1.15 !important; /* 行间距压缩至约 80% */
   text-align: center;
-  margin: 0 auto 0.5rem auto !important; /* 减小到底部图标的距离 */
+  margin: 0 auto 0.3rem auto !important; /* 减小到底部图标的距离 */
   max-width: 90%;
 }
 
@@ -29,7 +29,7 @@
   display: flex !important;
   justify-content: center;
   gap: 24px;
-  margin-top: 0.2rem !important; /* 紧贴文字下方 */
+  margin-top: 0.1rem !important; /* 紧贴文字下方 */
   margin-bottom: 0 !important;
 }
 
@@ -42,14 +42,14 @@
   width: 22px;
   height: 22px;
   fill: currentColor;
-  stroke: none; /* 确保如果是线框图标不被填充，如果是实心则正常 */
+  stroke: none;
 }
 
 .first-entry .social-icons a:hover {
   transform: scale(1.1);
 }
 
-/* 菜单图标优化 (Menu Icons) */
+/* 菜单图标优化 */
 #menu a svg {
   fill: none !important;
   stroke: currentColor;
