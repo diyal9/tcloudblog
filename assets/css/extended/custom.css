@@ -15,10 +15,11 @@
   font-size: 1.05rem !important;
   color: var(--primary);
   font-weight: 500;
-  line-height: 1.6 !important; /* 增加行间距，视觉上更舒适 */
+  line-height: 1.6 !important;
   text-align: center;
-  margin: 0 auto 0.8rem auto !important; /* 增加到底部图标的间距 */
-  padding-bottom: 0.6rem; /* 增加分割线到底部内容的空间 */
+  letter-spacing: 1.5px; /* 增加字间距 */
+  margin: 0 auto 0.8rem auto !important;
+  padding-bottom: 0.6rem;
   position: relative;
   max-width: 90%;
 }
