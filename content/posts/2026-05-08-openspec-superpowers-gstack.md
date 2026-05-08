@@ -88,5 +88,4 @@ gstack 不做架构决策，封装日常动作：
 - **中等**：多文件但边界清晰 → OpenSpec 提案 → 短 brainstorm + 短 plan → 实现 → `/browse` 或 `/qa` + verification。
 - **大型**：跨模块、公共 API、新架构 → 全文闭环：OpenSpec → brainstorm → plans → worktree + TDD → `/qa` → verification → code-review → 分支收尾 → `/ship` → `/land-and-deploy` → `/canary`。
 
----
-*本文源自微信公众号“笨小葱”（2026-04-23）剪藏内容的重排与精简。*
+
