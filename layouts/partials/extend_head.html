@@ -33,7 +33,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const wechatLink = document.querySelector('.wechat-link');
+  const wechatLink = document.querySelector('a[title*="微信"]');
   if (!wechatLink) return;
 
   const wechatId = wechatLink.getAttribute('data-wechat-id') || 'diyalyin';
