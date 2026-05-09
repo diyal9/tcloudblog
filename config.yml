@@ -47,7 +47,7 @@ params:
 
   label:
     text: "TCloud Blog"
-    icon: "images/blog-logo.png"
+    icon: "favicon.svg"
     iconHeight: 36
 
   # 归档页面配置
