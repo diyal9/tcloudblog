@@ -2,9 +2,9 @@
 categories: ["AI 编程", "架构设计"]
 title: "上下文管理：机制解析与最佳实践"
 date: 2026-05-09T22:30:00+08:00
-lastmod: 2026-05-09T22:30:00+08:00
-summary: "深度解析 Cursor、Claude Code、Codex 的上下文处理机制，结合 Go 后端与 Unity 开发场景，提供结构化的 AI 辅助编码最佳实践。"
-tags: ["AI 编程", "Context Engineering", "Cursor", "Claude Code", "Go", "Unity"]
+lastmod: 2026-05-09T23:30:00+08:00
+summary: "深度解析 Cursor、Claude Code、Codex 的上下文处理机制，结合 Go 后端、Unity 与 Cocos Creator 客户端开发场景，提供结构化的 AI 辅助编码最佳实践。"
+tags: ["AI 编程", "Context Engineering", "Cursor", "Claude Code", "Go", "Unity", "Cocos Creator"]
 ---
 
 在 AI 辅助编程时代，**“上下文（Context）管理”** 是决定 AI 产出质量的核心瓶颈。
@@ -163,12 +163,56 @@ Unity 开发的上下文管理难点在于：**引擎 API 隐式调用多（如 
 
 ---
 
+### 3. Cocos Creator 客户端开发：资源依赖与生命周期管控
+
+Cocos Creator 开发的上下文管理难点在于：**装饰器元数据 (`@property`) 与编辑器强绑定、场景/资源加载路径易错、节点树通信隐式化、以及移动端性能红线 (DrawCall/GC)。**
+
+#### `.cursorrules` (Cocos Creator / TS 版) 示例
+```markdown
+# Cocos Creator TypeScript Rules
+
+## 核心架构
+- **组件模式**：遵循 ECS 思想，避免 `GameManager` 式上帝脚本。逻辑解耦，通过事件总线 (`EventTarget`) 或自定义信号通信。
+- **装饰器规范**：所有 Inspector 绑定字段必须使用 `@property`，类型声明严格匹配 (e.g., `@property(Node) targetNode: Node = null!`)。
+- **资源加载**：优先使用动态加载 `resources.load` 配合地址常量，严禁硬编码路径。
+
+## 性能红线 (Performance)
+- **DrawCall 控制**：同材质/同图集的 UI 元素保持相邻层级，避免打断合批。禁止在 `update` 中动态切换 SpriteFrame。
+- **节点池复用**：频繁创建/销毁的节点 (列表项、弹幕、特效) 必须使用 `NodePool`。
+- **零 GC 更新**：`update` 循环中禁止 `new` 对象、数组展开 (`...arr`)、闭包生成。缓存 `Vec3` / `Quat` 临时变量。
+- **坐标转换优化**：避免在高频循环中调用 `node.getWorldPosition()`，改用本地坐标计算或预计算矩阵。
+
+## 编码规范
+- **生命周期**：严格区分 `onLoad` (初始化/缓存引用), `start` (逻辑启动), `onEnable`/`onDisable` (事件订阅/注销)。
+- **空引用防护**：所有 `@property` 字段在 `onLoad` 中检查有效性，使用 `!` 断言前确保编辑器已绑定。
+- **异步加载**：场景切换/大资源加载必须使用 `assetManager.loadAny` 配合进度回调，主线程严禁阻塞。
+```
+
+#### 最佳实践 Prompt 示例
+> **场景：优化技能特效列表的性能与内存泄漏问题。**
+>
+> “技能释放时列表滚动卡顿，退出关卡后内存未回落。
+> 
+> 1. **目标文件**：查看 `@SkillEffectList.ts` 和 `@NodePoolManager.ts`。
+> 2. **任务**：
+>    - 将直接 `instantiate` + `destroy` 改为 `NodePool` 管理，复用技能节点。
+>    - 在 `onDisable` 中清理所有未回收节点，并注销 `EventTarget` 监听。
+>    - 缓存 `Vec3` 临时变量，避免 `update` 中重复分配。
+> 3. **约束**：
+>    - 保持 `@property([Prefab])` 的 Inspector 配置不变。
+>    - 确保节点池 `put`/`get` 逻辑匹配，无内存泄漏。”
+
+**AI 行为分析**：AI 会理解 Cocos 的 `NodePool` 机制，自动检查 `onDisable` 的生命周期清理，并识别 `Vec3` 缓存这种引擎级优化模式。
+
+---
+
 ## 五、总结：不同领域的上下文“咒语”
 
 | 领域 | 上下文核心痛点 | 最佳实践手段 (Actionable) |
 | :--- | :--- | :--- |
 | **Go 后端** | 并发安全、分层混乱、错误丢失 | **强制规则文件** + **接口引用 (`@Interface`)** + **Context 传递** |
 | **Unity 游戏** | GC 卡顿、Inspector 丢失、组件耦合 | **性能红线规则** + **生命周期锚定 (`Awake` vs `Start`)** + **Profiler 数据引用** |
+| **Cocos Creator** | DrawCall 打断、资源路径硬编码、节点树隐式通信 | **NodePool 强制复用** + **`@property` 类型声明** + **`onEnable/Disable` 事件清理** |
 | **Web 前端** | 状态同步、CSS 污染、组件复用 | **全局状态树定义 (`@store.ts`)** + **组件契约 (`Props/Events`)** |
 | **AI 模型训练** | 数据流、显存管理、指标评估 | **配置文件引用 (`Config.yaml`)** + **Dataset Schema** + **Metric 定义** |
 
