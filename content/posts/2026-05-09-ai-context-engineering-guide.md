@@ -1,6 +1,6 @@
 ---
 categories: ["AI 编程", "架构设计"]
-title: "AI 编码上下文管理：Cursor/Claude/Codex 机制解析与最佳实践"
+title: "上下文管理：机制解析与最佳实践"
 date: 2026-05-09T22:30:00+08:00
 lastmod: 2026-05-09T22:30:00+08:00
 summary: "深度解析 Cursor、Claude Code、Codex 的上下文处理机制，结合 Go 后端与 Unity 开发场景，提供结构化的 AI 辅助编码最佳实践。"
