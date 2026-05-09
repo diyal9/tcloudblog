@@ -1,6 +1,6 @@
-{{- if .Site.Params.socialIcons }}
-<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
-  {{- range .Site.Params.socialIcons }}
+{{- if site.Params.socialIcons }}
+<div class="social-icons" {{ with .align }}align="{{ . }}"{{ end }}>
+  {{- range site.Params.socialIcons }}
   <a href="{{ if eq .name "wechat" }}javascript:void(0);{{ else }}{{ trim .url " " | safeURL }}{{ end }}"
      title="{{ (.title | default .name) | title }}"
      {{ if ne .name "wechat" }}target="_blank" rel="noopener noreferrer"{{ end }}
