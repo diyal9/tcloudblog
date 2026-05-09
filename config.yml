@@ -48,7 +48,7 @@ params:
   label:
     text: "TCloud Blog"
     icon: "images/blog-logo.png"
-    iconHeight: 36
+    iconHeight: 54
 
   # 归档页面配置
   disableSpecial1stPost: false
