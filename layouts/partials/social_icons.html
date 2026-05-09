@@ -1,17 +1,21 @@
-{{- if not .Params.hideSocialIcons }}
 {{- if .Site.Params.socialIcons }}
 <div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
-  {{- range $.Site.Params.socialIcons }}
-  <a href="{{ if eq .name "wechat" }}javascript:void(0);{{ else }}{{ .url }}{{ end }}" 
-     title="{{ .title | default .name | humanize }}" 
+  {{- range .Site.Params.socialIcons }}
+  <a href="{{ if eq .name "wechat" }}javascript:void(0);{{ else }}{{ trim .url " " | safeURL }}{{ end }}"
+     title="{{ (.title | default .name) | title }}"
      {{ if ne .name "wechat" }}target="_blank" rel="noopener noreferrer"{{ end }}
      {{ if eq .name "wechat" }}data-wechat-id="{{ .wechatId | default "" }}" class="wechat-link"{{ end }}
-     aria-label="{{ .title | default .name | humanize }}">
-    {{- with resources.Get (printf "icons/%s.svg" .name) }}
-      {{- .Content | safeHTML }}
+     aria-label="{{ (.title | default .name) | title }}">
+    {{- if eq .name "wechat" }}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 10C20.3142 10 23 12.2165 23 14.95C23 16.4867 22.1513 17.8595 20.8182 18.767V21L18.6756 19.7042C18.1265 19.835 17.5642 19.9007 17 19.9C13.6858 19.9 11 17.6835 11 14.95C11 12.2165 13.6858 10 17 10Z"/><path d="M10.7657 15.5978C10.033 15.8089 9.24728 15.9231 8.43285 15.9231C7.4893 15.9251 6.55199 15.7679 5.65934 15.4578L3.12367 17V13.9835C1.81018 12.8183 1 11.2223 1 9.46154C1 5.89262 4.3278 3 8.43285 3C12.4487 3 15.7202 5.76769 15.8657 9.23V9.48092M9.49469 7.30769H9.50531M6.30918 7.30769H6.3198M14.8039 13.7692H14.8145M17.9894 13.7692H18"/></svg>
+    {{- else if eq .name "email" }}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    {{- else if eq .name "github" }}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    {{- else }}
+    {{ partial "svg.html" . }}
     {{- end }}
   </a>
   {{- end }}
 </div>
-{{- end }}
 {{- end }}
