@@ -3,6 +3,7 @@ title: "Cursor + Infisical MCP：Agent 动态配置与密钥零信任实践"
 date: 2026-05-11T08:30:00+08:00
 lastmod: 2026-05-11T08:30:00+08:00
 author: "diyal9"
+summary: "结合 Cursor MCP 与 Infisical，打造 AI Agent 动态配置与密钥零信任实践。"
 categories: ["AI 工程化", "DevSecOps", "工具链"]
 tags: ["Cursor", "Infisical", "MCP", "Secrets", "Go"]
 ---
