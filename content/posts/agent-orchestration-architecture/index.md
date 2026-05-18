@@ -170,7 +170,7 @@ user.initiate_chat(coder, message="实现一个活动倒计时组件")
 
 ### 3.2 架构设计
 
-![AI Collab Hub 架构图](orchestration-arch.svg)
+![AI Collab Hub 架构图](orchestration-arch.png)
 
 ### 3.3 各角色在人回路中的定位
 
