@@ -170,15 +170,7 @@ user.initiate_chat(coder, message="实现一个活动倒计时组件")
 
 ### 3.2 架构设计
 
-**整体数据流向**：
-
-1. **前端控制台 (Web)**：提供画布编排、执行历史查看、实时日志监控。
-2. **HTTP / SSE 通信**：前端通过 HTTP 发起控制指令，通过 SSE (Server-Sent Events) 接收实时状态更新。
-3. **AI Collab Hub (Go)**：
-   - **任务管理**：处理流程的 CRUD 与路由分发。
-   - **DAG 执行引擎**：负责拓扑排序、条件路由、上下文变量传递。
-   - **Git Webhook + MCP Server**：接收 Git Push 触发信号，供 Cursor 等 IDE 直接调用。
-4. **WS:// 通信**：Hub 通过 WebSocket 将任务分发给外部 Agent（如 Hermes / Cursor / Codex）。
+![AI Collab Hub 架构图](/images/orchestration-arch.svg)
 
 ### 3.3 各角色在人回路中的定位
 
