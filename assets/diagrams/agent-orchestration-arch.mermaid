@@ -1,0 +1,32 @@
+graph TB
+    classDef frontend fill:#f9f9f9,stroke:#333,stroke-width:2px,rx:5px,ry:5px;
+    classDef backend fill:#e1f5fe,stroke:#333,stroke-width:2px,rx:5px,ry:5px;
+    classDef component fill:#fff,stroke:#333,stroke-width:1px,rx:3px,ry:3px;
+
+    subgraph Frontend [前端控制台 (Web)]
+        direction LR
+        UI1[画面编排]
+        UI2[执行历史]
+        UI3[实时日志]
+    end
+    class Frontend frontend
+
+    subgraph Backend [AI Collab Hub (Go)]
+        direction TB
+        
+        subgraph Core [核心调度]
+            direction LR
+            TM[任务管理<br/>CRUD 路由]
+            DAG[DAG 执行引擎<br/>拓扑排序路由]
+        end
+        class Core component
+
+        GW[Git Webhook + MCP Server<br/>Push 触发 | Cursor 直接调用]
+        
+        Core --> GW
+    end
+    class Backend backend
+
+    Frontend ==>|HTTP / SSE| Backend
+    Backend ==>|WS://| Agent[(外部 Agent / CLI)]
+    class Agent component
