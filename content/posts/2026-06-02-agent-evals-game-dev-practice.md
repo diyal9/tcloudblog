@@ -1,5 +1,5 @@
 ---
-title: "Agent Evals：AI 智能体落地的"驾照考试" —— 从理论到游戏研发实战"
+title: 'Agent Evals：AI 智能体落地的"驾照考试" —— 从理论到游戏研发实战'
 date: 2026-06-02T18:30:00+08:00
 lastmod: 2026-06-02T18:30:00+08:00
 draft: false
