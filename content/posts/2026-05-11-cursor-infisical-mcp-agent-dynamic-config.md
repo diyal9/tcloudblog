@@ -3,14 +3,14 @@ title: "Cursor + Infisical MCP：Agent 动态配置与密钥零信任实践"
 date: 2026-05-11T08:30:00+08:00
 lastmod: 2026-05-11T08:30:00+08:00
 author: "diyal9"
-summary: "结合 Cursor MCP 与 Infisical，打造 AI Agent 动态配置与密钥零信任实践。"
-categories: ["AI 工程化", "DevSecOps", "工具链"]
+summary: "结合 Cursor MCP 与 Infisical，打造 AI-Agent 动态配置与密钥零信任实践。"
+categories: ["AI 工程化", "DevSecOps", "Toolchain"]
 tags: ["Cursor", "Infisical", "MCP", "Secrets", "Go"]
 ---
 
 ## 痛点与方案
 
-在 AI Agent 开发中，我们面临一个难题：**如何让 Agent 安全地获取敏感配置（如数据库密码、API Key）？**
+在 AI-Agent 开发中，我们面临一个难题：**如何让 Agent 安全地获取敏感配置（如数据库密码、API Key）？**
 
 传统的 `.env` 文件容易泄露，硬编码更是大忌。本文介绍如何利用 **Infisical**（开源 Secrets 管理）结合 **Cursor MCP**，打造一套“密钥不落地、环境秒切”的现代化开发流。
 
@@ -62,7 +62,7 @@ tags: ["Cursor", "Infisical", "MCP", "Secrets", "Go"]
 * **Prompt**："把环境切换到 Staging，帮我检查代码中的连接配置。"
 * **Agent 行为**：修改 `mcp.json` 中的 `INFISICAL_ENV_SLUG` 为 `staging` -> 提示重启 -> 下次调用自动使用测试库。
 
-## 4. 架构师建议
+## 4. Architecture师建议
 
 * **CI/CD 集成**：生产部署不要依赖 MCP，应使用 Infisical 的 **Service Token** 或 **Infisical Agent** 注入环境变量。
 * **安全红线**：虽然 Agent 能拿到 Key，但必须配合 `.gitignore` 和 Code Review，确保生成的含密钥代码不被提交。

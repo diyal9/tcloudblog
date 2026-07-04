@@ -1,10 +1,10 @@
 ---
-categories: ["AI 编程", "架构设计"]
+categories: ["AI-Programming", "Architecture设计"]
 title: "上下文管理：机制解析与最佳实践"
 date: 2026-05-09T22:30:00+08:00
 lastmod: 2026-05-09T23:30:00+08:00
 summary: "深度解析 Cursor、Claude Code、Codex 的上下文处理机制，结合 Go 后端、Unity 与 Cocos Creator 客户端开发场景，提供结构化的 AI 辅助编码最佳实践。"
-tags: ["AI 编程", "Context Engineering", "Cursor", "Claude Code", "Go", "Unity", "Cocos Creator"]
+tags: ["AI-Programming", "Context Engineering", "Cursor", "Claude Code", "Go", "Unity", "Cocos Creator"]
 ---
 
 在 AI 辅助编程时代，**“上下文（Context）管理”** 是决定 AI 产出质量的核心瓶颈。
@@ -32,17 +32,17 @@ Claude Code 代表了另一种流派：暴力但高效的大窗口策略。
 
 *   **200k+ 上下文窗口**：
     *   允许直接注入完整的超大文件（如万行源码、完整的 API 文档、多文件依赖树）。
-    *   大幅降低“断章取义”概率，支持端到端架构级推理。
+    *   大幅降低“断章取义”概率，支持端到端Architecture级推理。
 *   **上下文压缩 (Context Compression)**：
     *   当对话历史逼近窗口上限时，Claude 采用 **LLM 驱动的自动摘要** 压缩早期交互。
-    *   它会保留关键架构决策、已修改文件路径和约束条件，丢弃冗余的中间报错。
+    *   它会保留关键Architecture决策、已修改文件路径和约束条件，丢弃冗余的中间报错。
 *   **Prompt Caching (提示词缓存)**：
     *   Anthropic 原生支持前缀缓存。如果你固定了 System Prompt 或规则文件，Token 缓存命中率可高达 70%+，显著降低延迟和成本。
 
 ### 3. OpenAI Codex / GPT-4o：会话沙箱与分块
 OpenAI 的 Code Interpreter / GPT-4o 采用的是更轻量级的策略。
 
-*   **架构特点**：
+*   **Architecture特点**：
     *   通常**没有持久化的后台索引**，依赖用户显式上传/解压项目。
 *   **上下文策略**：
     *   **自动分块 (Chunking)**：处理大文件时，会在后端进行切片和临时向量化，结合 128k 上下文窗口使用。
@@ -55,7 +55,7 @@ OpenAI 的 Code Interpreter / GPT-4o 采用的是更轻量级的策略。
 | :--- | :--- | :--- | :--- |
 | **核心策略** | **RAG 混合检索** (按需加载) | **超长上下文** (全量注入 + 压缩) | **会话级沙箱** (分块处理) |
 | **索引方式** | 本地持久化索引 (向量 + AST) | 依赖系统窗口缓存 (Prompt Cache) | 临时会话索引 / 用户显式上传 |
-| **适用场景** | 中大型遗留项目 (Legacy Code) | 新架构设计 / 复杂单文件分析 | 脚本编写 / 数据分析 / 独立模块 |
+| **适用场景** | 中大型遗留项目 (Legacy Code) | 新Architecture设计 / 复杂单文件分析 | 脚本编写 / 数据分析 / 独立模块 |
 | **上下文控制** | 强 (`@Codebase`, `.cursorrules`) | 中 (依赖 Prompt 优化) | 弱 (依赖手动引用文件) |
 
 ## 三、AI 编码最佳实践：上下文管理指南
@@ -90,14 +90,14 @@ OpenAI 的 Code Interpreter / GPT-4o 采用的是更轻量级的策略。
 
 ### 1. Go 服务开发：结构化契约与并发控制
 
-Go 开发中，AI 最大的痛点是**写出“能跑但并发不安全”的代码**或**破坏分层架构**。
-通过规则文件固定架构约束，比每次口头强调有效得多。
+Go 开发中，AI 最大的痛点是**写出“能跑但并发不安全”的代码**或**破坏分层Architecture**。
+通过规则文件固定Architecture约束，比每次口头强调有效得多。
 
 #### `.cursorrules` (Go 版) 示例
 ```markdown
 # Go Backend Rules (Microservices)
 
-## 架构原则
+## Architecture原则
 - **分层严格**：`Handler` 仅处理 HTTP/gRPC 解析与参数校验 -> `Service` 处理业务逻辑 -> `Repository` 处理 DB/Cache 交互。禁止跨层调用。
 - **依赖注入**：使用构造函数注入依赖，禁止全局变量或 `init()` 初始化核心逻辑。
 
@@ -131,7 +131,7 @@ Unity 开发的上下文管理难点在于：**引擎 API 隐式调用多（如 
 ```markdown
 # Unity C# Development Rules
 
-## 核心架构
+## 核心Architecture
 - **组件模式**：遵循 ECS 思想（逻辑解耦），避免巨大的 God Object。
 - **事件总线**：模块间通信使用 `EventSystem` 或 `C# Action`，禁止直接持有其他组件引用。
 
@@ -171,7 +171,7 @@ Cocos Creator 开发的上下文管理难点在于：**装饰器元数据 (`@pro
 ```markdown
 # Cocos Creator TypeScript Rules
 
-## 核心架构
+## 核心Architecture
 - **组件模式**：遵循 ECS 思想，避免 `GameManager` 式上帝脚本。逻辑解耦，通过事件总线 (`EventTarget`) 或自定义信号通信。
 - **装饰器规范**：所有 Inspector 绑定字段必须使用 `@property`，类型声明严格匹配 (e.g., `@property(Node) targetNode: Node = null!`)。
 - **资源加载**：优先使用动态加载 `resources.load` 配合地址常量，严禁硬编码路径。

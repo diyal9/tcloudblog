@@ -1,14 +1,14 @@
 ---
-title: "Agent 编排技术选型与架构方案：LangGraph, AutoGen 还是 Dify？"
+title: "Agent 编排技术选型与Architecture方案：LangGraph, AutoGen 还是 Dify？"
 date: 2026-05-15T21:59:00+08:00
 lastmod: 2026-05-15T21:59:00+08:00
-categories: ["AI架构", "Agent"]
-tags: ["LangGraph", "AutoGen", "Dify", "多智能体", "架构设计"]
+categories: ["AIArchitecture", "Agent"]
+tags: ["LangGraph", "AutoGen", "Dify", "多智能体", "Architecture设计"]
 ---
 
 在构建复杂的 AI 应用时，单一大语言模型 (LLM) 往往无法胜任长链路、多步骤、需跨系统交互的任务。单靠一个 "超级 Prompt" 已经不够了，我们需要**编排 (Orchestration)**。
 
-本文将对比目前主流的开源 Agent 编排框架，并给出适配 Go 语言后端的架构方案。
+本文将对比目前主流的开源 Agent 编排框架，并给出适配 Go 语言后端的Architecture方案。
 
 ## 主流框架横评
 
@@ -27,14 +27,14 @@ tags: ["LangGraph", "AutoGen", "Dify", "多智能体", "架构设计"]
 * **特点**: 开箱即用，提供低代码 UI，内置 RAG、工具调用。
 * **评价**: 企业级应用的首选，适合快速搭建和运维。
 
-## 我们的架构方案
+## 我们的Architecture方案
 
-考虑到我们的协作平台基于 Go 开发，推荐 **"Hub + 异构执行层"** 架构：
+考虑到我们的协作平台基于 Go 开发，推荐 **"Hub + 异构执行层"** Architecture：
 
 1.  **Hub (Go 层)**: 负责任务路由、Token 管理、全局监控。保持轻量级。
 2.  **Orchestrator (Python 微服务)**: 引入 LangGraph 作为编排引擎，通过 HTTP/gRPC 与 Hub 通信。
 
-这种架构既保留了 Go 的高并发优势，又利用了 Python 在 AI 生态中的丰富库支持。
+这种Architecture既保留了 Go 的高并发优势，又利用了 Python 在 AI 生态中的丰富库支持。
 
 ## 总结
 
