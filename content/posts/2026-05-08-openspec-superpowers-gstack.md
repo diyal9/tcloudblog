@@ -54,7 +54,7 @@ OpenSpec 采用 **双目录模型**：
 
 ## 3. gstack：验证与交付命令
 
-gstack 不做架构决策，封装日常动作：
+gstack 不做Architecture决策，封装日常动作：
 
 - `/browse`：截图、元素检查、用户路径
 - `/qa`：端到端测试
@@ -86,6 +86,6 @@ gstack 不做架构决策，封装日常动作：
 - **只读**：分析、解释、读代码 → 直接答；真 bug 未改可用 systematic-debugging。
 - **轻量**：单文件、小范围、明确修复 → 可跳过完整 brainstorming / worktree / 长 review；实现 + 定向验证 + 必要时 `/browse`。
 - **中等**：多文件但边界清晰 → OpenSpec 提案 → 短 brainstorm + 短 plan → 实现 → `/browse` 或 `/qa` + verification。
-- **大型**：跨模块、公共 API、新架构 → 全文闭环：OpenSpec → brainstorm → plans → worktree + TDD → `/qa` → verification → code-review → 分支收尾 → `/ship` → `/land-and-deploy` → `/canary`。
+- **大型**：跨模块、公共 API、新Architecture → 全文闭环：OpenSpec → brainstorm → plans → worktree + TDD → `/qa` → verification → code-review → 分支收尾 → `/ship` → `/land-and-deploy` → `/canary`。
 
 

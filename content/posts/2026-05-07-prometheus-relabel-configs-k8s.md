@@ -43,7 +43,7 @@ description: "系统阐述 Prometheus 在 Kubernetes 中的监控配置，核心
 | **keep** | 保留匹配正则的目标，丢弃其余的 | 仅监控带有特定 Label 的 Pod |
 | **drop** | 丢弃匹配正则的目标 | 排除系统组件、排除特定 Namespace |
 | **labelmap** | 将匹配到的标签名提取并映射为新标签 | 将 K8s Labels 批量转为 Prometheus Labels |
-| **hashmod** | 用于分片，通过哈希取模分配 Target | 联邦集群架构 |
+| **hashmod** | 用于分片，通过哈希取模分配 Target | 联邦集群Architecture |
 
 ### 关键参数
 *   `source_labels`: 输入标签，通常是 `__meta_kubernetes_*` 系列。

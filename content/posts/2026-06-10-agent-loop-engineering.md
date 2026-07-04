@@ -5,7 +5,7 @@ lastmod: 2026-06-10T21:30:00+08:00
 categories:
   - AI Engineering
 tags:
-  - AI Agent
+  - AI-Agent
   - Loop Engineering
   - LLM
   - Automation
@@ -32,7 +32,7 @@ draft: false
 
 ---
 
-## 二、 Loop 的核心架构：六大构建块
+## 二、 Loop 的核心Architecture：六大构建块
 
 一个健壮的 Agent Loop 并非简单的 `while(true)`，而是由以下六大核心组件协同工作：
 

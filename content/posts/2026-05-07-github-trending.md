@@ -8,7 +8,7 @@ author: "diyal9"
 description: "GitHub 趋势项目日报：DeepSeek-TUI, Anthropic financial-services, Agent Skills 等热门项目。"
 ---
 
-以下是今日 GitHub Trending 的精选项目，主要集中在 **AI 编程辅助** 和 **大模型应用** 领域：
+以下是今日 GitHub Trending 的精选项目，主要集中在 **AI-Programming辅助** 和 **大模型应用** 领域：
 
 ## 🔥 热门项目精选
 
@@ -23,7 +23,7 @@ description: "GitHub 趋势项目日报：DeepSeek-TUI, Anthropic financial-serv
    - 🔥 **今日 +5,787** stars
 
 3. **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)**
-   - **描述**: 生产级 AI 编程代理 (Agent) 工程技能库。
+   - **描述**: 生产级 AI-Programming代理 (Agent) 工程技能库。
    - **语言**: Shell
    - 🔥 **今日 +3,058** stars
 
@@ -63,4 +63,4 @@ description: "GitHub 趋势项目日报：DeepSeek-TUI, Anthropic financial-serv
     - 🔥 **今日 +160** stars
 
 ## 💡 总结
-今天的榜单非常“硬核”，**Anthropic** 的官方用例库和 **DeepSeek-TUI** 的高 Star 数说明了市场对 **垂直领域应用** 和 **本地化 Coding Agent** 的极高兴趣。同时，**Agent Skills** 和 **InsForge** 的出现，标志着 AI 编程工具的“工程化基础设施”正在迅速成熟。
+今天的榜单非常“硬核”，**Anthropic** 的官方用例库和 **DeepSeek-TUI** 的高 Star 数说明了市场对 **垂直领域应用** 和 **本地化 Coding Agent** 的极高兴趣。同时，**Agent Skills** 和 **InsForge** 的出现，标志着 AI-Programming工具的“工程化基础设施”正在迅速成熟。

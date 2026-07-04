@@ -4,20 +4,20 @@ date: 2026-05-08T07:40:00+08:00
 lastmod: 2026-05-08T07:40:00+08:00
 tags: ["AI", "Agent", "开源", "企业级", "goose", "MCP"]
 categories: ["AI"]
-summary: "goose 是一个拥有 43k Star 的开源 AI Agent 项目，定位为 Local Agent Runtime。本文将分析其 Desktop/CLI/API 三种形态，以及如何作为企业 AI 助手的工程化底座。"
+summary: "goose 是一个拥有 43k Star 的开源 AI-Agent 项目，定位为 Local Agent Runtime。本文将分析其 Desktop/CLI/API 三种形态，以及如何作为企业 AI 助手的工程化底座。"
 ---
 
 ## 概述
 
-[**goose**](https://github.com/block/goose) 是一个拥有 **43k Star** 的开源 AI Agent 项目，其核心定位是 **"Local Agent Runtime"（本地 Agent 运行时）**。
+[**goose**](https://github.com/block/goose) 是一个拥有 **43k Star** 的开源 AI-Agent 项目，其核心定位是 **"Local Agent Runtime"（本地 Agent 运行时）**。
 
 与传统 AI 助手不同，goose 的核心理念是：
 
 > 不是另一个聊天窗口，而是把 Agent 放进本机工作流的 **工程化底座**。
 
-![goose 架构总览](/images/goose-article-screenshot.jpg)
+![goose Architecture总览](/images/goose-article-screenshot.jpg)
 
-## 架构组成
+## Architecture组成
 
 goose 将以下五个组件组织到同一条 Agent 工作流中：
 
@@ -49,13 +49,13 @@ goose 提供 macOS、Linux、Windows 的桌面客户端 GUI，面向不想使用
 
 ### 3. API —— 嵌入内部系统
 
-允许将 goose 作为服务嵌入其他系统或内部平台，不仅仅是终端工具。企业可以将 Agent 能力整合到现有的内部工具链中。
+允许将 goose 作为服务嵌入其他系统或内部平台，不仅仅是终端工具。企业可以将 Agent 能力整合到现有的内部Toolchain中。
 
 ## 为什么企业需要 goose？
 
 ### 从「自建平台」到「复用底座」
 
-企业如果想部署 AI Agent，通常面临两个选择：
+企业如果想部署 AI-Agent，通常面临两个选择：
 
 | 方式 | 问题 |
 |------|------|

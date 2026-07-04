@@ -1,14 +1,14 @@
 ---
-title: "AI Agent 沙箱选型：阿里云 OpenSandbox vs 腾讯 Cube-Sandbox"
+title: "AI-Agent 沙箱选型：阿里云 OpenSandbox vs 腾讯 Cube-Sandbox"
 date: 2026-05-21T19:02:15+08:00
 lastmod: 2026-05-21T19:02:15+08:00
 author: "diyal9"
-summary: "深度对比阿里云 OpenSandbox 与腾讯 Cube-Sandbox，从隔离架构、安全策略到 AI 平台集成路线，助你找到最适合的 Agent 执行环境。"
+summary: "深度对比阿里云 OpenSandbox 与腾讯 Cube-Sandbox，从隔离Architecture、安全策略到 AI 平台集成路线，助你找到最适合的 Agent 执行环境。"
 categories: ["AI 工程化", "基础设施", "云原生"]
-tags: ["Sandbox", "OpenSandbox", "Cube-Sandbox", "AI Agent", "云原生", "Docker"]
+tags: ["Sandbox", "OpenSandbox", "Cube-Sandbox", "AI-Agent", "云原生", "Docker"]
 ---
 
-在构建 AI Agent 协作平台（如 AI Collab Hub）时，**安全且高效的代码执行环境**是核心基础设施。
+在构建 AI-Agent 协作平台（如 AI Collab Hub）时，**安全且高效的代码执行环境**是核心基础设施。
 
 当 Agent 生成并执行不可信代码时，如果缺乏隔离，宿主机或其他服务将面临巨大风险。本文对比两种主流方案：**阿里云 OpenSandbox** 与 **腾讯 Cube-Sandbox**，帮你理清技术选型。
 
@@ -23,7 +23,7 @@ tags: ["Sandbox", "OpenSandbox", "Cube-Sandbox", "AI Agent", "云原生", "Docke
 * **OpenSandbox** 更像一个“AI 实验室”，开箱即用，专注于让 Agent 跑起来。
 * **Cube-Sandbox** 更像“金融级保险箱”，专注于防止恶意逃逸和资源滥用。
 
-## 2. 架构与技术栈
+## 2. Architecture与技术栈
 
 ### OpenSandbox：轻量容器级
 * **底层**：基于 Docker/Containerd，标准 Linux Namespace + cgroups。
@@ -57,14 +57,14 @@ tags: ["Sandbox", "OpenSandbox", "Cube-Sandbox", "AI Agent", "云原生", "Docke
 * **理由**：安全是底线。外部用户上传恶意代码可能导致容器逃逸，微虚拟机隔离几乎是唯一解。
 * **成本**：中高，需要专门的云环境或 SDK 支持。
 
-### 场景 C：混合架构 (最佳实践)
+### 场景 C：混合Architecture (最佳实践)
 🏗️ **开发测试用 OpenSandbox，生产执行用 Cube-Sandbox**
 * 日常研发、原型验证跑在 OpenSandbox，保持敏捷。
 * 正式发布、对外 API 跑在 Cube-Sandbox，确保安全。
 
 ## 5. 在你的 AI 平台中集成
 
-无论选哪个，在架构上建议采用 **适配器模式** (Adapter Pattern)：
+无论选哪个，在Architecture上建议采用 **适配器模式** (Adapter Pattern)：
 
 ```go
 // sandbox/executor.go
@@ -80,4 +80,4 @@ type SandboxExecutor interface {
 * **OpenSandbox** = 开源、轻量、评测友好
 * **Cube-Sandbox** = 企业、安全、生产就绪
 
-随着 AI Agent 能力的增强，**“人在回路”的审批流 + 安全的沙箱执行环境** 将是下一代 AI 平台的标配。
+随着 AI-Agent 能力的增强，**“人在回路”的审批流 + 安全的沙箱执行环境** 将是下一代 AI 平台的标配。

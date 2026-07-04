@@ -4,14 +4,14 @@ date: 2026-05-08T08:00:00+08:00
 lastmod: 2026-05-08T08:00:00+08:00
 tags: ["AI", "LLM", "Agent", "可观测性", "Langfuse", "OpenTelemetry"]
 categories: ["AI"]
-summary: "Langfuse 是一个开源 LLM 工程平台，提供强大的 Tracing 功能。本文介绍如何在 OpenAI、Anthropic 等 LLM 调用中集成 Langfuse，并结合 OpenAI Agents 框架实现单智能体、多智能体及工具调用的可观测性。"
+summary: "Langfuse 是一个开源 LLM 工程平台，提供强大的 Tracing 功能。本文介绍如何在 OpenAI、Anthropic 等 LLM 调用中集成 Langfuse，并结合 OpenAI-Agents 框架实现单智能体、多智能体及工具调用的可观测性。"
 ---
 
 ## 概述
 
 在日常使用大模型（LLM）和多智能体（Agents）时，我们常常需要追踪它们的响应情况和成本。**[Langfuse](https://langfuse.com/)** 作为一个开源 LLM 工程平台，提供了强大的 Tracing（追踪）功能，使开发者能够详细监控 LLM 的调用路径、输入输出、响应时间和成本等关键指标。
 
-本文将介绍如何在 OpenAI 和 Anthropic 的 LLM 调用中集成 Langfuse，并通过 OpenAI Agents 框架展示单智能体、多智能体以及工具调用场景的可观测性实现。
+本文将介绍如何在 OpenAI 和 Anthropic 的 LLM 调用中集成 Langfuse，并通过 OpenAI-Agents 框架展示单智能体、多智能体以及工具调用场景的可观测性实现。
 
 ## Langfuse 简介
 
@@ -137,7 +137,7 @@ OpenAI 开源的 [openai-agents-python](https://github.com/openai/openai-agents-
 pip install openai-agents
 ```
 
-Langfuse 可以通过 **OpenTelemetry (OTLP)** 与 OpenAI Agents SDK 集成：
+Langfuse 可以通过 **OpenTelemetry (OTLP)** 与 OpenAI-Agents SDK 集成：
 
 ```python
 import base64

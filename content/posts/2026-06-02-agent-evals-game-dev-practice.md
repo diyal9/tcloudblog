@@ -3,11 +3,11 @@ title: 'Agent Evals：AI 智能体落地的"驾照考试" —— 从理论到游
 date: 2026-06-02T18:30:00+08:00
 lastmod: 2026-06-02T18:30:00+08:00
 draft: false
-categories: ["AI编程", "游戏开发"]
+categories: ["AI编程", "GameDev"]
 tags: ["Agent Evals", "AI落地", "质量保障", "知识工程"]
 author: "diyal9"
 toc: true
-description: "AI Agent 正在从‘对话者’变成‘行动者’。在游戏研发中，我们如何评估一个 Agent 是否合格？本文结合开源 Agent Evals 框架，探讨如何构建游戏行业的 AI 评估体系。"
+description: "AI-Agent 正在从‘对话者’变成‘行动者’。在游戏研发中，我们如何评估一个 Agent 是否合格？本文结合开源 Agent Evals 框架，探讨如何构建游戏行业的 AI 评估体系。"
 ---
 
 在 AI 辅助编程和自动化运维日益普及的今天，我们正经历从 **RAG（检索增强生成）** 向 **Agentic Workflow（智能体工作流）** 的范式转移。
@@ -53,9 +53,9 @@ description: "AI Agent 正在从‘对话者’变成‘行动者’。在游戏
 
 ## 3. 结合实战：游戏公司的 AI 落地方案
 
-回到我们的业务场景。在游戏研发中，引入 AI Agent 不仅仅是让程序员写代码快一点，更是要构建一套 **自动化、高质量的生产管线**。
+回到我们的业务场景。在游戏研发中，引入 AI-Agent 不仅仅是让程序员写代码快一点，更是要构建一套 **自动化、高质量的生产管线**。
 
-结合上述理论，我设想了一套针对游戏行业的 Agent Evals 落地架构：
+结合上述理论，我设想了一套针对游戏行业的 Agent Evals 落地Architecture：
 
 ### 场景 A：QA Agent 的“行为验证”
 传统自动化测试往往是脚本式的。而 Agent 需要理解自然语言的需求（如“测试签到功能的内存泄漏”）。
@@ -78,11 +78,11 @@ description: "AI Agent 正在从‘对话者’变成‘行动者’。在游戏
 
 ---
 
-## 4. 架构设计：GOKES (Game Ontology & Knowledge Engineering System)
+## 4. Architecture设计：GOKES (Game Ontology & Knowledge Engineering System)
 
 为了实现上述评估，我们需要将评估系统集成到更宏大的 **知识工程系统 (GOKES)** 中。
 
-### 核心架构组件
+### 核心Architecture组件
 
 1.  **Eval Runner (Go)**：
     *   作为执行器，并发跑各种测试用例（Golden Paths）。
@@ -94,9 +94,9 @@ description: "AI Agent 正在从‘对话者’变成‘行动者’。在游戏
 4.  **Result Dashboard (Vue Flow)**：
     *   可视化展示 Agent 的“实际操作路径”与“标准路径”的偏差，帮助人类快速定位问题。
 
-### 知识库与本体论的结合
+### 知识库与Ontology的结合
 
-这正是我们之前讨论的 **本体论 (Ontology)** 发挥作用的地方。
+这正是我们之前讨论的 **Ontology (Ontology)** 发挥作用的地方。
 *   **知识图谱** 提供了代码、需求、测试用例之间的关联。
 *   当 Agent 修改代码时，Evals 系统可以利用图谱自动判断：**“这次修改是否覆盖了所有相关的测试用例？”**
 

@@ -3,16 +3,16 @@ title: "graphify代码图谱的使用"
 date: 2026-05-08T02:00:00+08:00
 lastmod: 2026-05-08T02:00:00+08:00
 draft: false
-categories: ["AI编程", "工具链"]
-tags: ["graphify", "代码分析", "知识图谱", "开发效率"]
+categories: ["AI编程", "Toolchain"]
+tags: ["graphify", "CodeAnalysis", "知识图谱", "开发效率"]
 author: "diyal9"
 toc: true
-description: "详细介绍 Graphify 这一 AI 编程技能插件的使用，如何将代码、文档、论文转化为可查询的知识图谱，以及 12 个核心用例实战。"
+description: "详细介绍 Graphify 这一 AI-Programming技能插件的使用，如何将代码、文档、论文转化为可查询的知识图谱，以及 12 个核心用例实战。"
 ---
 
 Andrej Karpathy 曾提出过一个痛点：我们都有一个塞满代码、论文、推文截图的 `/raw` 文件夹，但这些素材之间的关联全在脑子里。AI 助手想要理解它们，就必须从头读取所有文件，消耗大量 Token。
 
-今天介绍的 **Graphify**，就是为了解决这个问题而生的 AI 编程助手「技能插件」。
+今天介绍的 **Graphify**，就是为了解决这个问题而生的 AI-Programming助手「技能插件」。
 
 Graphify 能将任意文件夹中的代码、文档、论文、图片转化为一个**可查询的知识图谱**。更厉害的是，构建图谱后，AI 查询仅消耗原始 Token 的 1/71.5。
 
@@ -77,7 +77,7 @@ Graphify 会对比 SHA256 缓存，仅对变更的文件重新提取。如果只
 
 ### 场景七：全自动维护 (Always-On)
 这是最高效的玩法：
-1.  `graphify install`：将指令写入 `CLAUDE.md` 或 `AGENTS.md`，让 AI 在回答架构问题时自动查图谱。
+1.  `graphify install`：将指令写入 `CLAUDE.md` 或 `AGENTS.md`，让 AI 在回答Architecture问题时自动查图谱。
 2.  `graphify hook install`：安装 Git Hooks，每次 `git commit` 或 `git checkout` 后自动重建图谱。
 
 配置完成后，你可以忘掉它的存在。你只管写代码，图谱自动同步，AI 自动增强。
@@ -90,7 +90,7 @@ Graphify 会对比 SHA256 缓存，仅对变更的文件重新提取。如果只
 对于深度图分析，Graphify 支持多种导出格式：
 *   `--graphml`：供 Gephi 或 yEd 使用。
 *   `--neo4j` / `--neo4j-push`：生成 Cypher 脚本或直接推送到 Neo4j。
-*   `--mcp`：启动 MCP 服务器，任何支持 MCP 的 AI Agent 都可以实时查询这张图谱。
+*   `--mcp`：启动 MCP 服务器，任何支持 MCP 的 AI-Agent 都可以实时查询这张图谱。
 
 ### 场景十：生成 Wiki 知识库
 团队其他成员没有 AI 助手怎么办？
@@ -107,7 +107,7 @@ Graphify 会对比 SHA256 缓存，仅对变更的文件重新提取。如果只
 
 ## 总结
 
-Graphify 不仅仅是一个代码分析工具，它更像是一个**“项目理解加速器”**。
+Graphify 不仅仅是一个CodeAnalysis工具，它更像是一个**“项目理解加速器”**。
 
 如果说 GitNexus 是为了让 AI 安全地**修改**代码（刹车系统），那么 Graphify 就是为了让 AI 和开发者更快地**看懂**系统（望远镜）。
 
