@@ -3,7 +3,6 @@ title: "TCloud Blog"
 theme: PaperMod
 
 languageCode: "zh-cn"
-defaultContentLanguage: "en"
 
 future: true
 
@@ -15,6 +14,7 @@ outputs:
 
 params:
   env: production
+  mainSections: ["posts"]
   title: "TCloud Blog"
   description: "基于 AI 知识库构建的技术博客"
   keywords: ["AI", "Blog", "Hugo", "PaperMod"]

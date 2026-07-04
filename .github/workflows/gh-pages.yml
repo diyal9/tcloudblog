@@ -34,9 +34,16 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --verbose 2>&1 | tee hugo-build.log
         env:
           TZ: Asia/Shanghai
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-build-log
+          path: hugo-build.log
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
