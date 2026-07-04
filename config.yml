@@ -1,8 +1,9 @@
 baseURL: "https://diyal9.github.io/tcloudblog/"
-title: "TCloud Tech Blog"
+title: "TCloud Blog"
 theme: PaperMod
 
 languageCode: "zh-cn"
+disableKinds: ["taxonomy", "term"]
 
 future: true
 
