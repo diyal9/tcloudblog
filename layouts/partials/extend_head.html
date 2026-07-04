@@ -1,4 +1,4 @@
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{{ "images/blog-logo.png" | absURL }}" type="image/png">
 
 <style>
 /* Logo size, alignment & spacing */
@@ -44,7 +44,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const wechatLink = document.querySelector('.wechat-link');
+  const wechatLink = document.querySelector('a[title*="微信"]');
   if (!wechatLink) return;
 
   const wechatId = wechatLink.getAttribute('data-wechat-id') || 'diyalyin';
