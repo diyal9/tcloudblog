@@ -40,12 +40,16 @@ jobs:
           hugo --verbose > hugo-build.log 2>&1 || true
           if [ ! -f public/index.html ]; then
             echo "❌ Build failed: public/index.html not found"
-            # Post error to GitHub Gist via curl
-            curl -s -X POST \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/diyal9/tcloudblog/gists \
-              -d "{\"description\":\"Hugo Build Error\",\"public\":true,\"files\":{\"error.log\":{\"content\":\"$(cat hugo-build.log | head -100)\"}}}"
+            # Save log to repo
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            echo "### Hugo Build Error" > BUILD_ERROR.md
+            echo '```' >> BUILD_ERROR.md
+            cat hugo-build.log >> BUILD_ERROR.md
+            echo '```' >> BUILD_ERROR.md
+            git add BUILD_ERROR.md
+            git commit -m "ci: save build error log"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/diyal9/tcloudblog.git HEAD:main || true
             exit 1
           fi
         env:
