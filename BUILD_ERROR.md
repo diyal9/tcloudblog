@@ -1,24 +1,75 @@
 ### Hugo Build Error
 ```
-ERROR deprecated: --verbose was deprecated in Hugo v0.114.0 and will be removed in Hugo 0.135.0. use --logLevel info
-WARN  Module "PaperMod" is not compatible with this Hugo version: Min 0.146.0; run "hugo mod graph" for more information.
-Start building sites … 
-hugo v0.134.0-77df7bbbff8ce6b56ed693270088de973a87d5ce+extended linux/amd64 BuildDate=2024-09-03T09:54:22Z VendorInfo=gohugoio
+hugo is the main command, used to build your Hugo project.
 
-INFO  static: syncing static files to / duration 2.523852ms
-INFO  build:  step process substep collect files 38 files_total 38 pages_total 36 resources_total 2 duration 6.738996ms
-INFO  build:  step process duration 10.778739ms
-INFO  build:  step assemble duration 974.403µs
-ERROR => hugo v0.146.0 or greater is required for hugo-PaperMod to build
-WARN  found no layout file for "html" for kind "section": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-WARN  found no layout file for "html" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-WARN  found no layout file for "html" for layout "archives" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-WARN  found no layout file for "html" for layout "search" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-ERROR render of "404" failed: "/home/runner/work/tcloudblog/tcloudblog/themes/PaperMod/layouts/baseof.html:16:8": execute of template failed: template: 404.html:16:8: executing "404.html" at <partial "head.html" .>: error calling partial: partial "head.html" not found
-INFO  build:  step render pages 3 content 0 duration 4.897101ms
-INFO  build:  step render deferred count 0 duration 671ns
-INFO  build:  step postProcess duration 13.575µs
-INFO  build:  duration 16.8139ms
-Total in 36 ms
-Error: error building site: render: failed to render pages: render of "home" failed: "/home/runner/work/tcloudblog/tcloudblog/themes/PaperMod/layouts/baseof.html:16:8": execute of template failed: template: list.html:16:8: executing "list.html" at <partial "head.html" .>: error calling partial: partial "head.html" not found
+Hugo is a Fast and Flexible Static Site Generator
+built with love by spf13 and friends in Go.
+
+Complete documentation is available at https://gohugo.io/.
+
+Usage:
+  hugo [flags]
+  hugo [command]
+
+Available Commands:
+  build       Build your project
+  completion  Generate the autocompletion script for the specified shell
+  config      Display project configuration
+  convert     Convert front matter to another format
+  env         Display version and environment info
+  gen         Generate documentation and syntax highlighting styles
+  help        Help about any command
+  import      Import a project from another system
+  list        List content
+  mod         Manage modules
+  new         Create new content
+  server      Start the embedded web server
+  version     Display version
+
+Flags:
+  -b, --baseURL string             hostname (and path) to the root, e.g. https://spf13.com/
+  -D, --buildDrafts                include content marked as draft
+  -E, --buildExpired               include expired content
+  -F, --buildFuture                include content with publishdate in the future
+      --cacheDir string            filesystem path to cache directory
+      --cleanDestinationDir        remove files from destination not found in static directories
+      --clock string               set the clock used by Hugo, e.g. --clock 2021-11-06T22:30:00.00+09:00
+      --config string              config file (default is hugo.yaml|json|toml)
+      --configDir string           config dir (default "config")
+  -c, --contentDir string          filesystem path to content directory
+  -d, --destination string         filesystem path to write files to
+      --disableKinds strings       disable different kind of pages (home, RSS etc.)
+      --enableGitInfo              add Git revision, date, author, and CODEOWNERS info to the pages
+  -e, --environment string         build environment
+      --forceSyncStatic            copy all files when static is changed.
+      --gc                         enable to run some cleanup tasks (remove unused cache files) after the build
+  -h, --help                       help for hugo
+      --ignoreCache                ignore the configured file caches
+      --ignoreVendorPaths string   ignores any _vendor for module paths matching the given Glob pattern
+  -l, --layoutDir string           filesystem path to layout directory
+      --logLevel string            log level (debug|info|warn|error)
+      --minify                     minify any supported output format (HTML, XML etc.)
+      --noBuildLock                don't create .hugo_build.lock file
+      --noChmod                    don't sync permission mode of files
+      --noTimes                    don't sync modification time of files
+      --panicOnWarning             panic on first WARNING log
+      --poll string                set this to a poll interval, e.g --poll 700ms, to use a poll based approach to watch for file system changes
+      --printI18nWarnings          print missing translations
+      --printMemoryUsage           print memory usage to screen at intervals
+      --printPathWarnings          print warnings on duplicate target paths etc.
+      --printUnusedTemplates       print warnings on unused templates.
+      --quiet                      build in quiet mode
+      --renderSegments strings     named segments to render (configured in the segments config)
+  -M, --renderToMemory             render to memory (mostly useful when running the server)
+  -s, --source string              filesystem path to read files relative from
+      --templateMetrics            display metrics about template executions
+      --templateMetricsHints       calculate some improvement hints when combined with --templateMetrics
+  -t, --theme strings              themes to use (located in /themes/THEMENAME/)
+      --themesDir string           filesystem path to themes directory
+      --trace file                 write trace to file (not useful in general)
+  -w, --watch                      watch filesystem for changes and recreate as needed
+
+Use "hugo [command] --help" for more information about a command.
+
+ERROR command error: unknown flag: --verbose
 ```
