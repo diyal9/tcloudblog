@@ -1,9 +1,9 @@
 baseURL: "https://diyal9.github.io/tcloudblog/"
 title: "TCloud Blog"
-theme: ["PaperMod"]
+theme: PaperMod
 
 languageCode: "zh-cn"
-defaultContentLanguage: "zh"
+disableKinds: ["taxonomy", "term"]
 
 future: true
 
@@ -15,6 +15,7 @@ outputs:
 
 params:
   env: production
+  mainSections: ["posts"]
   title: "TCloud Blog"
   description: "基于 AI 知识库构建的技术博客"
   keywords: ["AI", "Blog", "Hugo", "PaperMod"]

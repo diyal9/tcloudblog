@@ -8,7 +8,7 @@ tags: ["Code-Knowledge-Graph", "GitNexus", "Graphify", "Understand-Anything", "C
 categories: ["AI-Programming", "Toolchain", "CodeAnalysis"]
 author: "diyal9"
 toc: true
-description: "AI-Programming工具已爆发，但核心瓶颈是"理解"。本文对比四款图谱工具，探讨如何通过知识图谱提升 AI 编码的准确性与安全性。"
+description: "AI-Programming工具已爆发，但核心瓶颈是'理解'。本文对比四款图谱工具，探讨如何通过知识图谱提升 AI 编码的准确性与安全性。"
 ---
 
 AI-Programming工具（如 Cursor, Copilot）已经越来越擅长写代码了。但在真实工程里，更关键的问题是：**AI 是否真的理解代码？**

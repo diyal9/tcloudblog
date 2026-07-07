@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
+      - hermes
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,29 +28,49 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.134.0'
-          extended: true
-
       - name: Build
-        run: hugo --minify
+        id: build
+        run: |
+          # Force install Hugo 0.146.0
+          curl -L "https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_linux-amd64.tar.gz" -o /tmp/hugo.tar.gz
+          tar xzf /tmp/hugo.tar.gz -C /tmp hugo
+          chmod +x /tmp/hugo
+          export PATH="/tmp:$PATH"
+          echo "Using Hugo version: $(hugo version)"
+          
+          hugo --minify > hugo-build.log 2>&1 || true
+          if [ ! -f public/index.html ]; then
+            echo "❌ Build failed: public/index.html not found"
+            # Save log to repo
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            echo "### Hugo Build Error" > BUILD_ERROR.md
+            echo '```' >> BUILD_ERROR.md
+            cat hugo-build.log >> BUILD_ERROR.md
+            echo '```' >> BUILD_ERROR.md
+            git add BUILD_ERROR.md
+            git commit -m "ci: save build error log"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/diyal9/tcloudblog.git HEAD:main || true
+            exit 1
+          fi
         env:
           TZ: Asia/Shanghai
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-build-log
+          path: hugo-build.log
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
