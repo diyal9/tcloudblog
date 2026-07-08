@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- 1. Frontend Console -->
+        <rect x="350" y="40" width="200" height="100" rx="8" fill="rgba(8, 51, 68, 0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="450" y="65" fill="white" font-size="12" font-weight="600" text-anchor="middle">前端控制台 (Web)</text>
+        <text x="450" y="85" fill="#94a3b8" font-size="9" text-anchor="middle">Vue Flow Orchestration Canvas</text>
+        
+        <rect x="365" y="95" width="50" height="35" rx="4" fill="rgba(8, 51, 68, 0.6)" stroke="#22d3ee" stroke-width="1"/>
+        <text x="390" y="116" fill="#e0f2fe" font-size="8" text-anchor="middle">画面编排</text>
+        
+        <rect x="425" y="95" width="50" height="35" rx="4" fill="rgba(8, 51, 68, 0.6)" stroke="#22d3ee" stroke-width="1"/>
+        <text x="450" y="116" fill="#e0f2fe" font-size="8" text-anchor="middle">执行历史</text>
+
+        <rect x="485" y="95" width="50" height="35" rx="4" fill="rgba(8, 51, 68, 0.6)" stroke="#22d3ee" stroke-width="1"/>
+        <text x="510" y="116" fill="#e0f2fe" font-size="8" text-anchor="middle">实时日志</text>
+
+        <!-- Arrow 1: Frontend to Backend -->
+        <line x1="450" y1="140" x2="450" y2="218" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <text x="470" y="185" fill="#22d3ee" font-size="9">HTTP / SSE</text>
+
+        <!-- 2. Backend Core (AI Collab Hub) -->
+        <rect x="100" y="220" width="700" height="280" rx="12" fill="rgba(6, 78, 59, 0.15)" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+        <text x="112" y="238" fill="#34d399" font-size="10" font-weight="600">AI Collab Hub (Go)</text>
+
+        <!-- 2.1 Task Management -->
+        <rect x="140" y="260" width="260" height="100" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="270" y="285" fill="white" font-size="11" font-weight="600" text-anchor="middle">任务管理 (Task Mgmt)</text>
+        <text x="270" y="305" fill="#94a3b8" font-size="9" text-anchor="middle">CRUD Routes, Dispatching</text>
+        <text x="270" y="325" fill="#94a3b8" font-size="9" text-anchor="middle">Queue &amp; Load Balancing</text>
+        <text x="270" y="345" fill="#34d399" font-size="8" text-anchor="middle">REST API: /tasks/*</text>
+
+        <!-- 2.2 DAG Execution Engine -->
+        <rect x="440" y="260" width="260" height="100" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="570" y="285" fill="white" font-size="11" font-weight="600" text-anchor="middle">DAG 执行引擎 (Engine)</text>
+        <text x="570" y="305" fill="#94a3b8" font-size="9" text-anchor="middle">Topological Sort, State Machine</text>
+        <text x="570" y="325" fill="#94a3b8" font-size="9" text-anchor="middle">Conditional Routing, Context Passing</text>
+        <text x="570" y="345" fill="#34d399" font-size="8" text-anchor="middle">REST API: /flows/*</text>
+
+        <!-- Arrows inside Hub -->
+        <path d="M 400 310 Q 420 310 438 310" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path d="M 440 330 Q 420 330 400 330" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- 2.3 Git Webhook + MCP -->
+        <rect x="200" y="410" width="500" height="70" rx="6" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1.5"/>
+        <text x="450" y="435" fill="white" font-size="11" font-weight="600" text-anchor="middle">Git Webhook + MCP Server</text>
+        <text x="450" y="455" fill="#94a3b8" font-size="9" text-anchor="middle">Push Triggers, Cursor Direct Calls, Plugin Integration</text>
+
+        <!-- Arrows to Webhook -->
+        <line x1="450" y1="360" x2="450" y2="408" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- 3. External Agents -->
+        <line x1="450" y1="480" x2="450" y2="558" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <text x="470" y="525" fill="#a78bfa" font-size="9">ws:// (WebSocket)</text>
+
+        <rect x="300" y="560" width="300" height="80" rx="8" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+        <text x="450" y="585" fill="white" font-size="12" font-weight="600" text-anchor="middle">外部 Agent / CLI</text>
+        <text x="450" y="605" fill="#94a3b8" font-size="9" text-anchor="middle">Hermes Agent / Cursor / Codex</text>
+        <text x="450" y="625" fill="#94a3b8" font-size="9" text-anchor="middle">Aider / OpenClaw / Custom Scripts</text>
+
+        <!-- Legend -->
+        <text x="720" y="520" fill="white" font-size="10" font-weight="600">Legend</text>
+        <rect x="720" y="532" width="16" height="10" rx="2" fill="rgba(8, 51, 68, 0.4)" stroke="#22d3ee" stroke-width="1"/>
+        <text x="742" y="540" fill="#94a3b8" font-size="8">Frontend (Web)</text>
+        
+        <rect x="720" y="548" width="16" height="10" rx="2" fill="rgba(6, 78, 59, 0.4)" stroke="#34d399" stroke-width="1"/>
+        <text x="742" y="556" fill="#94a3b8" font-size="8">Backend (Go)</text>
+        
+        <rect x="720" y="564" width="16" height="10" rx="2" fill="rgba(30, 41, 59, 0.5)" stroke="#94a3b8" stroke-width="1"/>
+        <text x="742" y="572" fill="#94a3b8" font-size="8">External Agents</text>
+      </svg>
