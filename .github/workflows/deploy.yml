@@ -1,0 +1,39 @@
+name: Deploy Hugo Site to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+        env:
+          TZ: Asia/Shanghai
+
+      - name: Deploy to main/docs
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: main
+          destination_dir: docs
+          keep_files: true
+          commit_message: "docs: deploy hugo site ${{ github.sha }}"
