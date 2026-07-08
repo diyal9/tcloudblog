@@ -16,6 +16,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -35,5 +36,9 @@ jobs:
           publish_dir: ./public
           publish_branch: main
           destination_dir: docs
-          keep_files: true
-          commit_message: "docs: deploy hugo site ${{ github.sha }}"
+          keep_files: false
+          force_orphan: false
+          commit_message: "docs: deploy hugo site"
+
+      - name: Delete old workflow
+        run: rm -f .github/workflows/gh-pages.yml 2>/dev/null || true
