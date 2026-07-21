@@ -3,7 +3,7 @@ title: "TCloud Blog"
 theme: PaperMod
 
 languageCode: "zh-cn"
-disableKinds: ["taxonomy", "term"]
+disableKinds: ["RSS"]
 
 future: true
 
