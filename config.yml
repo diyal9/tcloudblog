@@ -12,6 +12,12 @@ outputs:
     - HTML
     - RSS
     - JSON # PaperMod 搜索功能依赖 JSON
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
 
 params:
   env: production
