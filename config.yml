@@ -85,9 +85,7 @@ menu:
       name: 归档
       url: /archives/
       weight: 10
-      pre: "📁"
     - identifier: tags
       name: 标签
       url: /tags/
       weight: 20
-      pre: "📁"
