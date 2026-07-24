@@ -1,9 +1,16 @@
-/* Center alignment for Home Info and Social Icons */
+/* Center alignment */
 .home-info {
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+}
+
+/* Divider line */
+.home-info .content {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .social-icons {
