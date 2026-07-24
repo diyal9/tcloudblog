@@ -6,15 +6,17 @@
     text-align: center;
 }
 
-/* Divider line */
-.home-info .content {
+/* Force divider line under the text */
+.home-info p, .home-info .content {
+    position: relative;
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2) !important;
 }
 
 .social-icons {
     justify-content: center;
     display: flex;
     gap: 15px;
+    padding-top: 5px;
 }
