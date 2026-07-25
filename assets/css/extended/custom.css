@@ -1,4 +1,4 @@
-/* Center alignment */
+/* Center alignment for Home Info */
 .home-info {
     display: flex;
     flex-direction: column;
@@ -7,17 +7,15 @@
     width: 100%;
 }
 
-/* Divider line: Robust approach targeting multiple possible elements */
-.home-info .content, 
-.home-info .entry-content,
-.home-info p,
-.home-info h1 {
-    position: relative;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+/* Subtle single divider line */
+.home-info hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin: 15px 0;
+    width: 100%;
 }
 
+/* Center social icons */
 .social-icons {
     justify-content: center;
     display: flex;
