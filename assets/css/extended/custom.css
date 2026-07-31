@@ -1,43 +1,77 @@
-/* 导航链接（归档、标签）改为按钮样式 */
-.header .nav a {
-    background-color: #e8edf2; /* 浅灰色背景 */
-    color: #1a1a2e;
-    padding: 6px 12px;
-    border-radius: 20px; /* 胶囊形状 */
-    font-size: 0.85em;
-    font-weight: 500;
-    margin-left: 8px;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-}
-.header .nav a:hover {
-    background-color: #1a1a2e;
-    color: #fff;
+
+/* 首页 Hero 区域优化 */
+
+.first-entry {
+  min-height: auto !important;
+  margin: 0 0 1.2rem 0 !important;
+  padding: 0.8rem 2rem 0.8rem 2rem !important;
+  border: none !important;
+  border-radius: 12px;
+  background: var(--entry);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-/* 社交图标样式 */
-.social-icons a {
-    color: var(--secondary);
-    transition: color 0.2s ease;
-}
-.social-icons a:hover {
-    color: var(--primary);
-}
-
-/* 降低中间内容区域的 Padding，使其更紧凑 */
-.post-entry {
-    padding: 14px; /* 减小内边距 */
-    margin-bottom: 12px; /* 减小卡片间距 */
-}
-.post-entry .entry-header h2 {
-    font-size: 1.1em; /* 稍微减小标题字号 */
-}
-.entry-content {
-    font-size: 0.9em;
-    margin-top: 5px;
+.first-entry .entry-content {
+  font-size: 1rem !important;
+  color: var(--primary); /* Make text slightly darker/bolder for readability */
+  font-weight: 500;
+  line-height: 1.4 !important;
+  text-align: center;
+  margin: 0 auto 0.8rem auto !important; /* Space for separator */
+  padding-bottom: 0.8rem; /* Space above separator */
+  position: relative;
+  max-width: 90%;
 }
 
-/* 首页 Info 区域紧凑化 */
-.home-info {
-    padding: 10px 0;
+/* Gradient Separator */
+.first-entry .entry-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--secondary) 50%, transparent 100%);
+  opacity: 0.5;
+}
+
+.first-entry .entry-content ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.first-entry .entry-content li { margin: 0; }
+
+.first-entry .social-icons {
+  display: flex !important;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 0.8rem !important; /* Space below separator */
+  margin-bottom: 0 !important;
+}
+
+.first-entry .social-icons a {
+  color: var(--secondary);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.first-entry .social-icons a svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.first-entry .social-icons a:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+/* 菜单图标优化 */
+#menu a svg {
+  fill: none !important;
+  stroke: currentColor;
+  stroke-width: 2;
+  vertical-align: -3px;
+  margin-right: 6px;
 }
