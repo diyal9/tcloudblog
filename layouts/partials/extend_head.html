@@ -1,17 +1,6 @@
-<link rel="icon" href="{{ "images/blog-logo.png" | absURL }}" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <style>
-/* Logo size, alignment & spacing */
-.logo a {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 8px;
-}
-.logo img {
-  height: 54px !important;
-  width: auto;
-}
-
 /* WeChat tooltip */
 .wechat-tooltip {
   position: fixed;
@@ -44,7 +33,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const wechatLink = document.querySelector('a[title*="微信"]');
+  const wechatLink = document.querySelector('.wechat-link');
   if (!wechatLink) return;
 
   const wechatId = wechatLink.getAttribute('data-wechat-id') || 'diyalyin';

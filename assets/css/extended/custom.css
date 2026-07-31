@@ -1,25 +1,43 @@
-/* Center alignment for Home Info */
+/* 导航链接（归档、标签）改为按钮样式 */
+.header .nav a {
+    background-color: #e8edf2; /* 浅灰色背景 */
+    color: #1a1a2e;
+    padding: 6px 12px;
+    border-radius: 20px; /* 胶囊形状 */
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+.header .nav a:hover {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+/* 社交图标样式 */
+.social-icons a {
+    color: var(--secondary);
+    transition: color 0.2s ease;
+}
+.social-icons a:hover {
+    color: var(--primary);
+}
+
+/* 降低中间内容区域的 Padding，使其更紧凑 */
+.post-entry {
+    padding: 14px; /* 减小内边距 */
+    margin-bottom: 12px; /* 减小卡片间距 */
+}
+.post-entry .entry-header h2 {
+    font-size: 1.1em; /* 稍微减小标题字号 */
+}
+.entry-content {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* 首页 Info 区域紧凑化 */
 .home-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-/* Subtle single divider line */
-.home-info hr {
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-    margin: 15px 0;
-    width: 100%;
-}
-
-/* Center social icons */
-.social-icons {
-    justify-content: center;
-    display: flex;
-    gap: 15px;
-    padding-top: 5px;
-    width: 100%;
+    padding: 10px 0;
 }
