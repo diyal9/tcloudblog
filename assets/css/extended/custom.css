@@ -63,6 +63,11 @@
   stroke-width: 2;
 }
 
+/* Fix: Code blocks must support Chinese characters */
+pre, code {
+  font-family: 'Menlo', 'Consolas', 'DejaVu Sans Mono', 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+}
+
 .first-entry .social-icons a:hover {
   color: var(--primary);
   transform: scale(1.1);
